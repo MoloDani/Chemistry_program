@@ -12,7 +12,7 @@ struct elGr
 extern char **elements;
 extern int noElem, *firstPart, n, m;
 
-extern **mat;
+extern int **mat;
 int indexElem;
 
 char diffEl[mxN][3];
@@ -41,7 +41,7 @@ char *toEl(int n)
 
 elGr computeElem(int ind)
 {
-    // TO DO: verify if next character is another element(elements without uppper/lower)
+    // TODO: verify if next character is another element(elements without uppper/lower)
     char *elem = new char;
     int coeficient = 0, indAux = 0;
     while ((elements[ind][indexElem] >= 'a' && elements[ind][indexElem] <= 'z') || (elements[ind][indexElem] >= 'A' && elements[ind][indexElem] <= 'Z') && elements[ind][indexElem] != '\0')
@@ -93,7 +93,7 @@ std::map<int, int> computeParanthesis(char *el, int index)
         int charParc = 0, coef = 0;
         if (el[index] == '(')
         {
-            std::map mapAux = computeParanthesis((el + index + 1), 0);
+            std::map<int, int> mapAux = computeParanthesis((el + index + 1), 0);
             for (auto x : mapAux)
                 ans[x.first] += x.second;
 

@@ -4,7 +4,7 @@
 #include "config.h"
 #include <map>
 
-extern **mat;
+extern int **mat;
 
 const int mxC = 100001;
 

@@ -11,9 +11,9 @@
 int **mat = new int *[mxN + 1];
 int n, m;
 
-extern *row, *col;
+extern int *row, *col;
 
-extern **matAns;
+extern int **matAns;
 
 int main()
 {

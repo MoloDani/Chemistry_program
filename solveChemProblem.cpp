@@ -13,7 +13,7 @@ extern char **elements;
 
 std::map<int, int> molarMass;
 int solMass[mxN + 1];
-double realMass[mxN];
+double realMass[mxN], mols[mxN], volume[mxN];
 
 void initMolarMass()
 {
@@ -156,17 +156,33 @@ void calcMolarMass(int i)
 void solveChemProblem()
 {
     initMolarMass();
-    int indKnown, quantity;
+    int indKnown, quantity, typeKnown;
     std::cout << "Din ce solutie stii cantitatea?";
     std::cin >> indKnown;
+    std::cout << "Ce cunosti? (1-masa, 2-volum, 3-moli)";
+    std::cin >> typeKnown;
     std::cout << "Cata solutie este?";
     std::cin >> quantity;
-
-    realMass[indKnown] = quantity;
 
     for (int i = 1; i <= noElem; i++)
     {
         calcMolarMass(i);
+    }
+
+    if(typeKnown == 1){
+        realMass[indKnown] = quantity;
+        volume[indKnown] = realMass[indKnown] * solMass[indKnown];
+        mols[indKnown] = realMass[indKnown] / solMass[indKnown];
+    }
+    else if(typeKnown == 2){
+        volume[indKnown] = quantity;
+        mols[indKnown] = volume[indKnown] / 22.4; // at STP
+        realMass[indKnown] = mols[indKnown] * solMass[indKnown];
+    }
+    else if(typeKnown == 3){
+        mols[indKnown] = quantity;
+        realMass[indKnown] = mols[indKnown] * solMass[indKnown];
+        volume[indKnown] = mols[indKnown] * 22.4; // at STP
     }
 
     for (int i = 1; i <= noElem; i++)
@@ -177,7 +193,18 @@ void solveChemProblem()
         realMass[i] = realMass[indKnown] * solMass[i] / solMass[indKnown];
     }
 
-    // TO DO: calculate the answer in mols, liters...
+    for (int i = 1; i <= noElem; i++)
+    {
+        if (i == indKnown)
+            continue;
+
+        mols[i] = realMass[i] / solMass[i];
+        volume[i] = mols[i] * 22.4; // at STP
+    }
+
+    // TODO: calculate the answer in mols, liters...
+
+
 
     std::cout << "\n";
     for (int i = 1; i <= noElem; i++)
@@ -199,4 +226,11 @@ void solveChemProblem()
     std::cout << "\n";
     for (int i = 1; i <= noElem; i++)
         std::cout << realMass[i] << "   ";
+    std::cout << "\n";
+    for (int i = 1; i <= noElem; i++)
+        std::cout << mols[i] << "   ";
+    std::cout << "\n";
+    for (int i = 1; i <= noElem; i++)
+        std::cout << volume[i] << "   ";
+    std::cout << "\n";
 }
