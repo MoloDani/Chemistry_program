@@ -21,7 +21,7 @@ fraction solve(int collumn, int rang)
     auxAns = {det(rang, auxMat), determinant};
 
     for (int i = 1; i <= rang; i++)
-        auxMat[i][collumn] = matAns[row[i]][col[collumn]];
+        auxMat[i][collumn] = mat[row[i]][col[collumn]];
 
     return auxAns;
 }
@@ -69,7 +69,7 @@ void solution()
 
     for (int i = 1; i <= rangMaxim; i++)
     {
-        ansMat[col[i]] = solve(col[i], rangMaxim);
+        ansMat[col[i]] = solve(i, rangMaxim);
     }
 
     int auxCoef = 1;

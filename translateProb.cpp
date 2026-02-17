@@ -124,7 +124,7 @@ std::map<int, int> computeParanthesis(char *el, int index)
                 charParc++;
             }
 
-            ans[toKey(elAux)] = (coef ? coef : 1);
+            ans[toKey(elAux)] += (coef ? coef : 1);
             index += charParc;
         }
         else if (el[index] == ')')

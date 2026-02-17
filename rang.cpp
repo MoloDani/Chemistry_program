@@ -63,7 +63,7 @@ int rangMatrix(int n, int m)
         {
             if (valUsed(row, rang, i))
                 continue;
-            for (int j = 1; j <= n && searching; j++)
+            for (int j = 1; j <= m && searching; j++)
             {
                 if (valUsed(col, rang, j))
                     continue;
