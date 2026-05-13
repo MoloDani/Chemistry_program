@@ -41,7 +41,6 @@ char *toEl(int n)
 
 elGr computeElem(int ind)
 {
-    // TODO: verify if next character is another element(elements without uppper/lower)
     char *elem = new char;
     int coeficient = 0, indAux = 0;
     while ((elements[ind][indexElem] >= 'a' && elements[ind][indexElem] <= 'z') || (elements[ind][indexElem] >= 'A' && elements[ind][indexElem] <= 'Z') && elements[ind][indexElem] != '\0')
