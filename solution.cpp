@@ -43,12 +43,6 @@ void solution()
         for (int j = 1; j <= rangMaxim; j++)
             auxMat[i][j] = mat[row[i]][col[j]];
 
-    // for (int i = 1; i <= rangMaxim; i++)
-    // {
-    //     for (int j = 1; j <= rangMaxim; j++)
-    //         std::cout << auxMat[i][j] << " ";
-    //     std::cout << "\n";
-    // }
 
     for (int i = 1; i <= n; i++)
     {
@@ -83,20 +77,6 @@ void solution()
     {
         ansMat[i] = ansMat[i] * auxCoef;
     }
-
-    // for (int i = 1; i <= m; i++)
-    // {
-    //     if (ansMat[i].numerator != 1)
-    //         std::cout << ansMat[i];
-    //     std::cout << elements[i];
-    //     if (i == m)
-    //         continue;
-
-    //     if (firstPart[i] != firstPart[i + 1] && firstPart[i + 1])
-    //         std::cout << " = ";
-    //     else
-    //         std::cout << " + ";
-    // }
-
+    
     return;
 }
