@@ -25,18 +25,5 @@ int main()
 
     solveChemProblem();
 
-    // cin >> n >> m;
-    // for (int i = 1; i <= n; i++)
-    //     for (int j = 1; j <= m; j++)
-    //         cin >> mat[i][j];
-
-    // rangMaxim = rangMatrix(n, m);
-
-    // int *ans = solution();
-
-    // cout << "\n";
-    // for (int i = 1; i <= m; i++)
-    //     cout << ans[i] << " ";
-
     return 0;
 }
